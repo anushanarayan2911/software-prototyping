@@ -11,7 +11,7 @@ public class View{
     public JTextField enterTaskTextField;
     public JButton enterTaskButton;
 
-    //private ImageIcon imageLabel;;
+    ImageIcon imageIcon;
     private JLabel imageLabel;
     
     public View() {
@@ -22,6 +22,7 @@ public class View{
         enterTaskLabel = new JLabel("Enter Task");
         enterTaskTextField = new JTextField();
         enterTaskButton = new JButton("OK");
+        imageIcon = new ImageIcon("images/crisps.png");
         imageLabel = new JLabel();
 
         frame.setTitle("Tasks");
@@ -48,12 +49,17 @@ public class View{
         frame.setVisible(true);
     }
 
-    public void displayImage() {
-        ImageIcon icon = new ImageIcon("images/crisps.png");
-        Image image = icon.getImage();
+    public void displayImage(String item) {
+        System.out.println(item);
+        switch(item) {
+            case ("crisps"): { imageIcon = new ImageIcon("images/crisps.png");}
+            case ("apple"): { imageIcon = new ImageIcon("images/apple.png");}
+        }
+        
+        Image image = imageIcon.getImage();
         Image newImage = image.getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH);
-        icon = new ImageIcon(newImage);
-        imageLabel.setIcon(icon);
+        imageIcon = new ImageIcon(newImage);
+        imageLabel.setIcon(imageIcon);
         
         panel1.revalidate();
         panel1.repaint();

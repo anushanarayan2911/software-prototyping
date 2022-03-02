@@ -19,10 +19,10 @@ public class Model {
         allTasks.put("school", schoolTasks);
         allTasks.put("house", houseTasks);
 
-        imagesCollection.put("crisps", new ImageIcon("crisps.jpg"));
+        imagesCollection.put("crisps", new ImageIcon("crisps.png"));
     }
 
-    public void storeTask(String s){
+    public String storeTask(String s){
         if (s.contains("eat")) {
             foodTasks.add(s);
             allTasks.replace("food", foodTasks);
@@ -36,5 +36,10 @@ public class Model {
             houseTasks.add(s);
             allTasks.replace("house", houseTasks);
         }
+
+        int startIndex = s.indexOf(" ") + 1;
+
+        String item = s.substring(startIndex, s.length());
+        return(item);
     }
 }
