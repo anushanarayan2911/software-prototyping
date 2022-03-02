@@ -11,7 +11,7 @@ public class View {
     private JLabel lineSpace1;
     private JLabel lineSpace2;
     private JLabel enterTaskLabel;
-    private JTextField enterTaskTextField;
+    public JTextField enterTaskTextField;
     public JButton enterTaskButton;
     
     public View() {

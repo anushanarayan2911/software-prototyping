@@ -19,6 +19,7 @@ public class Controller implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("hi");
+        String task = this.view.enterTaskTextField.getText();
+        this.model.storeTask(task);
     }
 }

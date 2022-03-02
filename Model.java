@@ -1,3 +1,12 @@
+import java.util.ArrayList;
+
 public class Model {
-    String task = new String("hi");
+
+    ArrayList<String> tasksList = new ArrayList<String>();
+
+    public void storeTask(String s){
+        tasksList.add(s);
+
+        System.out.println(tasksList.size());
+    }
 }
