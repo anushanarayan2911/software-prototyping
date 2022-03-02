@@ -1,3 +1,4 @@
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,7 +12,7 @@ public class Controller implements ActionListener{
         this.model = model;
         this.view = view;
 
-        this.view.enterTaskButton.addActionListener(this);
+        //this.view.enterTaskButton.addActionListener(this);
     }
 
     public void displayScreen() {
