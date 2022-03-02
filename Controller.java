@@ -1,6 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class Controller implements ActionListener{
     
     private Model model;
@@ -21,5 +22,6 @@ public class Controller implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String task = this.view.enterTaskTextField.getText();
         this.model.storeTask(task);
-    }
+        //this.view.displayImage();
+    }   
 }

@@ -1,4 +1,6 @@
+
 import javax.swing.*;
+
 
 public class View {
     
@@ -9,6 +11,7 @@ public class View {
     private JLabel enterTaskLabel;
     public JTextField enterTaskTextField;
     public JButton enterTaskButton;
+    private JLabel imageLabel;
     
     public View() {
         frame = new JFrame();
@@ -18,6 +21,7 @@ public class View {
         enterTaskLabel = new JLabel("Enter task");
         enterTaskTextField = new JTextField();
         enterTaskButton = new JButton("OK");
+        imageLabel = new JLabel();
 
         frame.setTitle("Tasks");
         frame.setSize(500, 500);
@@ -37,6 +41,7 @@ public class View {
         panel1.add(enterTaskTextField);
         panel1.add(lineSpace2);
         panel1.add(enterTaskButton);
+        panel1.add(imageLabel);
 
         frame.add(panel1);
     }

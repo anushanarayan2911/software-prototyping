@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 
 public class Model {
 
@@ -10,11 +11,15 @@ public class Model {
     ArrayList<String> schoolTasks = new ArrayList<String>();
     ArrayList<String> houseTasks = new ArrayList<String>();
 
+    HashMap<String, ImageIcon> imagesCollection = new HashMap<String, ImageIcon>();
+
     public Model() {
         allTasks.put("food", foodTasks);
         allTasks.put("clothes", clothesTasks);
         allTasks.put("school", schoolTasks);
         allTasks.put("house", houseTasks);
+
+        imagesCollection.put("crisps", new ImageIcon("crisps.jpg"));
     }
 
     public void storeTask(String s){
@@ -31,7 +36,5 @@ public class Model {
             houseTasks.add(s);
             allTasks.replace("house", houseTasks);
         }
-        
-        System.out.println(allTasks.get("food"));
     }
 }
