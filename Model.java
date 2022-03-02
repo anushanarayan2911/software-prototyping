@@ -1,4 +1,3 @@
-import java.util.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,8 +21,17 @@ public class Model {
         if (s.contains("eat")) {
             foodTasks.add(s);
             allTasks.replace("food", foodTasks);
+        } else if (s.contains("wear")) {
+            clothesTasks.add(s);
+            allTasks.replace("clothes", clothesTasks);
+        } else if (s.contains("write")) {
+            schoolTasks.add(s);
+            allTasks.replace("school", schoolTasks);
+        } else if (s.contains("do")) {
+            houseTasks.add(s);
+            allTasks.replace("house", houseTasks);
         }
-
+        
         System.out.println(allTasks.get("food"));
     }
 }
