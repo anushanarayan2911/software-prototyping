@@ -1,9 +1,5 @@
 import java.awt.*;
 import javax.swing.*;
-//5import java.awt.imageLabel.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
-
 
 public class View{
     
@@ -33,18 +29,11 @@ public class View{
         frame.setLayout(null);
         
         panel1.setSize(100, 200);
-        BoxLayout boxLayout = new BoxLayout(panel1, BoxLayout.Y_AXIS);
-        panel1.setLayout(boxLayout);
+        panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
         panel1.setLocation(210, 210);
         
         enterTaskTextField.setBorder(null);
         
-        ImageIcon icon = new ImageIcon("images/crisps.png");
-        Image image = icon.getImage();
-        Image newImage = image.getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH);
-        icon = new ImageIcon(newImage);
-        imageLabel.setIcon(icon);
-
         panel1.add(enterTaskLabel);
         panel1.add(lineSpace1);
         panel1.add(enterTaskTextField);
@@ -57,5 +46,16 @@ public class View{
 
     public void displayScreen() {
         frame.setVisible(true);
+    }
+
+    public void displayImage() {
+        ImageIcon icon = new ImageIcon("images/crisps.png");
+        Image image = icon.getImage();
+        Image newImage = image.getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH);
+        icon = new ImageIcon(newImage);
+        imageLabel.setIcon(icon);
+        
+        panel1.revalidate();
+        panel1.repaint();
     }
 }

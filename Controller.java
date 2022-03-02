@@ -12,7 +12,7 @@ public class Controller implements ActionListener{
         this.model = model;
         this.view = view;
 
-        //this.view.enterTaskButton.addActionListener(this);
+        this.view.enterTaskButton.addActionListener(this);
     }
 
     public void displayScreen() {
@@ -21,8 +21,8 @@ public class Controller implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String task = this.view.enterTaskTextField.getText();
-        this.model.storeTask(task);
-        //this.view.displayImage();
+        //String task = this.view.enterTaskTextField.getText();
+        //this.model.storeTask(task);
+        this.view.displayImage();
     }   
 }
