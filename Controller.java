@@ -23,6 +23,7 @@ public class Controller implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String task = this.view.enterTaskTextField.getText();
         String item = this.model.storeTask(task);
-        this.view.displayImage(item);
+        String imageAddress = this.model.getImageAddress(item);
+        this.view.displayImage(imageAddress);
     }   
 }

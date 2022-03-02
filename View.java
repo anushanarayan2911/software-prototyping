@@ -49,13 +49,8 @@ public class View{
         frame.setVisible(true);
     }
 
-    public void displayImage(String item) {
-        System.out.println(item);
-        switch(item) {
-            case ("crisps"): { imageIcon = new ImageIcon("images/crisps.png");}
-            case ("apple"): { imageIcon = new ImageIcon("images/apple.png");}
-        }
-        
+    public void displayImage(String imageAddress) {
+        imageIcon = new ImageIcon(imageAddress);
         Image image = imageIcon.getImage();
         Image newImage = image.getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH);
         imageIcon = new ImageIcon(newImage);

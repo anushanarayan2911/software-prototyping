@@ -11,7 +11,7 @@ public class Model {
     ArrayList<String> schoolTasks = new ArrayList<String>();
     ArrayList<String> houseTasks = new ArrayList<String>();
 
-    HashMap<String, ImageIcon> imagesCollection = new HashMap<String, ImageIcon>();
+    HashMap<String, String> imagesCollection = new HashMap<String, String>();
 
     public Model() {
         allTasks.put("food", foodTasks);
@@ -19,7 +19,8 @@ public class Model {
         allTasks.put("school", schoolTasks);
         allTasks.put("house", houseTasks);
 
-        imagesCollection.put("crisps", new ImageIcon("crisps.png"));
+        imagesCollection.put("crisps", "images/crisps.png");
+        imagesCollection.put("apple", "images/apple.png");
     }
 
     public String storeTask(String s){
@@ -41,5 +42,11 @@ public class Model {
 
         String item = s.substring(startIndex, s.length());
         return(item);
+    }
+
+    public String getImageAddress(String s) {
+        String imageAddress = imagesCollection.get(s);
+
+        return(imageAddress);
     }
 }
