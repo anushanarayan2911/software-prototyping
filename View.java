@@ -49,7 +49,8 @@ public class View{
         frame.setVisible(true);
     }
 
-    public void displayImage(String imageAddress) {
+    public void displayImage(String item) {
+        String imageAddress = new String("images/" + item + ".png");
         imageIcon = new ImageIcon(imageAddress);
         Image image = imageIcon.getImage();
         Image newImage = image.getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH);

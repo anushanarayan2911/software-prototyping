@@ -1,26 +1,19 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.ImageIcon;
 
 public class Model {
 
-    //ArrayList<String> tasksList = new ArrayList<String>();
     HashMap<String, ArrayList<String>> allTasks = new HashMap<String, ArrayList<String>>();
     ArrayList<String> foodTasks = new ArrayList<String>();
     ArrayList<String> clothesTasks = new ArrayList<String>();
     ArrayList<String> schoolTasks = new ArrayList<String>();
     ArrayList<String> houseTasks = new ArrayList<String>();
 
-    HashMap<String, String> imagesCollection = new HashMap<String, String>();
-
     public Model() {
         allTasks.put("food", foodTasks);
         allTasks.put("clothes", clothesTasks);
         allTasks.put("school", schoolTasks);
         allTasks.put("house", houseTasks);
-
-        imagesCollection.put("crisps", "images/crisps.png");
-        imagesCollection.put("apple", "images/apple.png");
     }
 
     public String storeTask(String s){
@@ -42,11 +35,5 @@ public class Model {
 
         String item = s.substring(startIndex, s.length());
         return(item);
-    }
-
-    public String getImageAddress(String s) {
-        String imageAddress = imagesCollection.get(s);
-
-        return(imageAddress);
     }
 }
