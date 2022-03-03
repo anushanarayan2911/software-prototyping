@@ -16,24 +16,33 @@ public class Model {
         allTasks.put("house", houseTasks);
     }
 
-    public String storeTask(String s){
+    public String[] storeTask(String s){
+        String action = "";
         if (s.contains("eat")) {
             foodTasks.add(s);
             allTasks.replace("food", foodTasks);
+            action = "eat";
         } else if (s.contains("wear")) {
             clothesTasks.add(s);
             allTasks.replace("clothes", clothesTasks);
+            action = "wear";
         } else if (s.contains("write")) {
             schoolTasks.add(s);
             allTasks.replace("school", schoolTasks);
+            action = "write";
         } else if (s.contains("do")) {
             houseTasks.add(s);
             allTasks.replace("house", houseTasks);
+            action = "do";
         }
 
         int startIndex = s.indexOf(" ") + 1;
 
         String item = s.substring(startIndex, s.length());
-        return(item);
+        String[] toReturn = new String[2];
+        toReturn[0] = item;
+        toReturn[1] = action;
+        
+        return(toReturn);
     }
 }

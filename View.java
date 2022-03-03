@@ -3,7 +3,7 @@ import javax.swing.*;
 
 public class View{
     
-    private JFrame frame;
+    private JFrame frame1;
     private JPanel panel1;
     private JLabel lineSpace1;
     private JLabel lineSpace2;
@@ -11,11 +11,14 @@ public class View{
     public JTextField enterTaskTextField;
     public JButton enterTaskButton;
 
+    private JFrame frame2;
+    private JPanel panel2;
     ImageIcon imageIcon;
     private JLabel imageLabel;
+    private JLabel taskHeadingLabel;
     
     public View() {
-        frame = new JFrame();
+        frame1 = new JFrame();
         panel1 = new JPanel();
         lineSpace1 = new JLabel(" ");
         lineSpace2 = new JLabel(" ");
@@ -25,11 +28,11 @@ public class View{
         imageIcon = new ImageIcon("images/crisps.png");
         imageLabel = new JLabel();
 
-        frame.setTitle("Tasks");
-        frame.setSize(500, 500);
-        frame.setLayout(null);
+        frame1.setTitle("Tasks");
+        frame1.setSize(500, 500);
+        frame1.setLayout(null);
         
-        panel1.setSize(100, 200);
+        panel1.setSize(100, 100);
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
         panel1.setLocation(210, 210);
         
@@ -40,16 +43,36 @@ public class View{
         panel1.add(enterTaskTextField);
         panel1.add(lineSpace2);
         panel1.add(enterTaskButton);    
-        panel1.add(imageLabel);
+        //panel1.add(imageLabel);
 
-        frame.add(panel1);
+        frame1.add(panel1);
+
+        frame2 = new JFrame();
+        panel2 = new JPanel();
+        taskHeadingLabel = new JLabel();
+        
+        frame2.setTitle("Device");
+        frame2.setSize(500, 500);
+        frame2.setLayout(null);
+
+        panel2.setSize(200, 200);
+        panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS));
+        panel2.setLocation(210, 210);
+        
+        panel2.add(taskHeadingLabel);
+        panel2.add(imageLabel);
+
+        frame2.add(panel2);
     }
 
     public void displayScreen() {
-        frame.setVisible(true);
+        frame1.setVisible(true);
     }
 
-    public void displayImage(String item) {
+    public void displayTask(String item, String action) {
+        taskHeadingLabel.setText("You have been given " + item + " to " + action);
+        System.out.println(taskHeadingLabel.getText());
+
         String imageAddress = new String("images/" + item + ".png");
         imageIcon = new ImageIcon(imageAddress);
         Image image = imageIcon.getImage();
@@ -57,7 +80,9 @@ public class View{
         imageIcon = new ImageIcon(newImage);
         imageLabel.setIcon(imageIcon);
         
-        panel1.revalidate();
-        panel1.repaint();
+        panel2.revalidate();
+        panel2.repaint();
+
+        frame2.setVisible(true);
     }
 }

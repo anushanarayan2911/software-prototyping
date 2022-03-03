@@ -22,7 +22,8 @@ public class Controller implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String task = this.view.enterTaskTextField.getText();
-        String imageToDisplay = this.model.storeTask(task);
-        this.view.displayImage(imageToDisplay);
+        String imageToDisplay = this.model.storeTask(task)[0];
+        String actionToDisplay = this.model.storeTask(task)[1];
+        this.view.displayTask(imageToDisplay, actionToDisplay);
     }   
 }
