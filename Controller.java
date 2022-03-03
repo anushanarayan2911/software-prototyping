@@ -1,4 +1,4 @@
-
+import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,10 +7,12 @@ public class Controller implements ActionListener{
     
     private Model model;
     private View view;
+    private Data data;
 
-    public Controller(Model model, View view) {
+    public Controller(Model model, View view, Data data) {
         this.model = model;
         this.view = view;
+        this.data = data;
 
         this.view.enterTaskButton.addActionListener(this);
     }
@@ -25,5 +27,9 @@ public class Controller implements ActionListener{
         String imageToDisplay = this.model.storeTask(task)[0];
         String actionToDisplay = this.model.storeTask(task)[1];
         this.view.displayTask(imageToDisplay, actionToDisplay);
+
+        String instructionsKey = actionToDisplay + " " + imageToDisplay;
+        ArrayList<String> instructions = this.data.foodInstructions.get(instructionsKey);
+        System.out.println(instructions);
     }   
 }

@@ -71,7 +71,6 @@ public class View{
 
     public void displayTask(String item, String action) {
         taskHeadingLabel.setText("You have been given " + item + " to " + action);
-        System.out.println(taskHeadingLabel.getText());
 
         String imageAddress = new String("images/" + item + ".png");
         imageIcon = new ImageIcon(imageAddress);
