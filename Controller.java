@@ -30,6 +30,6 @@ public class Controller implements ActionListener{
 
         String instructionsKey = actionToDisplay + " " + imageToDisplay;
         ArrayList<String> instructions = this.data.foodInstructions.get(instructionsKey);
-        System.out.println(instructions);
+        this.view.displayInstructions(instructions);
     }   
 }

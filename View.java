@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 public class View{
@@ -43,7 +45,6 @@ public class View{
         panel1.add(enterTaskTextField);
         panel1.add(lineSpace2);
         panel1.add(enterTaskButton);    
-        //panel1.add(imageLabel);
 
         frame1.add(panel1);
 
@@ -83,5 +84,14 @@ public class View{
         panel2.repaint();
 
         frame2.setVisible(true);
+    }
+
+    public void displayInstructions(ArrayList<String> instructions) {
+        JLabel instruction = new JLabel(instructions.get(0));
+        
+        panel2.add(instruction);
+
+        panel2.revalidate();
+        panel2.repaint();
     }
 }
