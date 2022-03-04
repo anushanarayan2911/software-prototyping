@@ -97,12 +97,23 @@ public class View{
     }
 
     public void displayInstructions(ArrayList<String> instructions, int index) {
-        instructionLabel.setText(instructions.get(index));
-        yesButton.setText("yes");
-        noButton.setText("no");
-    
-        panel2.revalidate();
-        panel2.repaint();
+        if (index != instructions.size() - 1) {
+            instructionLabel.setText(instructions.get(index));
+            yesButton.setText("yes");
+            noButton.setText("no");
+        
+            panel2.revalidate();
+            panel2.repaint();
+        } else if(index == instructions.size() - 1) {
+            instructionLabel.setText(instructions.get(index));
+
+            panel2.remove(yesButton);
+            panel2.remove(noButton);
+            
+            panel2.revalidate();
+            panel2.repaint();
+        }
+        
     }
 
     public void displayFinalLine() {

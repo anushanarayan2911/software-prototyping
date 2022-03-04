@@ -27,9 +27,8 @@ public class Controller implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //System.out.println(this.view.enterTaskButton);
         Object actionSource = e.getSource();
-
+        
         if (actionSource.equals(this.view.enterTaskButton)) {
             
             String task = this.view.enterTaskTextField.getText();
@@ -43,10 +42,14 @@ public class Controller implements ActionListener{
             this.view.displayInstructions(instructions, index);
             
         } else if (actionSource.equals(this.view.yesButton)) {
-            this.view.displayFinalLine();
+            if (index == 0) {
+                this.view.displayFinalLine();
+            } else if (index == 1) {
+                index += 1;
+                this.view.displayInstructions(instructions, index);
+            }
         } else if (actionSource.equals(this.view.noButton)) {
             index += 1;
-            //System.out.println(instructions);
             this.view.displayInstructions(instructions, index);
         }
     }
