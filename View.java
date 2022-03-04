@@ -126,4 +126,16 @@ public class View{
         panel2.repaint();
 
     }
+
+    public void alertCarer() {
+        panel1.remove(enterTaskLabel);
+        panel1.remove(enterTaskTextField);
+        panel1.remove(enterTaskButton);
+        
+        JLabel helpNeededLabel = new JLabel("Help is required");
+        panel1.add(helpNeededLabel);
+
+        panel1.revalidate();
+        panel1.repaint();
+    }
 }

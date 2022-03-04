@@ -40,6 +40,8 @@ public class Controller implements ActionListener{
             instructions = this.data.foodInstructions.get(instructionsKey);
             index = 0;
             this.view.displayInstructions(instructions, index);
+
+            this.view.enterTaskTextField.setText("");
             
         } else if (actionSource.equals(this.view.yesButton)) {
             if (index == 0) {
@@ -49,8 +51,13 @@ public class Controller implements ActionListener{
                 this.view.displayInstructions(instructions, index);
             }
         } else if (actionSource.equals(this.view.noButton)) {
-            index += 1;
-            this.view.displayInstructions(instructions, index);
+            if (index == instructions.size() - 2) {
+                this.view.alertCarer();
+            } else {
+                index += 1;
+                this.view.displayInstructions(instructions, index);
+            }
+            
         }
     }
 }
