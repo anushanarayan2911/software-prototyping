@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class Controller implements ActionListener{
     
     private Model model;
-    private View view;
+    public View view;
     private Data data;
 
     public Controller(Model model, View view, Data data) {
@@ -15,6 +15,7 @@ public class Controller implements ActionListener{
         this.data = data;
 
         this.view.enterTaskButton.addActionListener(this);
+        this.view.yesButton.addActionListener(this);
     }
 
     public void displayScreen() {
@@ -23,13 +24,22 @@ public class Controller implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String task = this.view.enterTaskTextField.getText();
-        String imageToDisplay = this.model.storeTask(task)[0];
-        String actionToDisplay = this.model.storeTask(task)[1];
-        this.view.displayTask(imageToDisplay, actionToDisplay);
+        //System.out.println(this.view.enterTaskButton);
+        Object actionSource = e.getSource();
 
-        String instructionsKey = actionToDisplay + " " + imageToDisplay;
-        ArrayList<String> instructions = this.data.foodInstructions.get(instructionsKey);
-        this.view.displayInstructions(instructions);
-    }   
+        if (actionSource.equals(this.view.enterTaskButton)) {
+            
+            String task = this.view.enterTaskTextField.getText();
+            String imageToDisplay = this.model.storeTask(task)[0];
+            String actionToDisplay = this.model.storeTask(task)[1];
+            this.view.displayTask(imageToDisplay, actionToDisplay);
+
+            String instructionsKey = actionToDisplay + " " + imageToDisplay;
+            ArrayList<String> instructions = this.data.foodInstructions.get(instructionsKey);
+            this.view.displayInstructions(instructions);
+            
+        } else if (actionSource.equals(this.view.yesButton)) {
+            this.view.displayFinalLine();
+        }
+    }
 }

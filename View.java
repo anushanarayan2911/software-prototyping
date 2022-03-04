@@ -18,6 +18,10 @@ public class View{
     ImageIcon imageIcon;
     private JLabel imageLabel;
     private JLabel taskHeadingLabel;
+
+    private JLabel instructionLabel;
+    public JButton yesButton;
+    public JButton noButton;
     
     public View() {
         frame1 = new JFrame();
@@ -51,6 +55,9 @@ public class View{
         frame2 = new JFrame();
         panel2 = new JPanel();
         taskHeadingLabel = new JLabel();
+        instructionLabel = new JLabel();
+        yesButton = new JButton();
+        noButton = new JButton();
         
         frame2.setTitle("Device");
         frame2.setSize(500, 500);
@@ -62,6 +69,9 @@ public class View{
         
         panel2.add(taskHeadingLabel);
         panel2.add(imageLabel);
+        panel2.add(instructionLabel);
+        panel2.add(yesButton);
+        panel2.add(noButton);
 
         frame2.add(panel2);
     }
@@ -87,11 +97,22 @@ public class View{
     }
 
     public void displayInstructions(ArrayList<String> instructions) {
-        JLabel instruction = new JLabel(instructions.get(0));
-        
-        panel2.add(instruction);
+        instructionLabel.setText(instructions.get(0));
+        yesButton.setText("Yes");
+        noButton.setText("no");
+    
+        panel2.revalidate();
+        panel2.repaint();
+    }
+
+    public void displayFinalLine() {
+        panel2.remove(yesButton);
+        panel2.remove(noButton);
+
+        instructionLabel.setText("Enjoy!");
 
         panel2.revalidate();
         panel2.repaint();
+
     }
 }
