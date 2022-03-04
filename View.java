@@ -96,9 +96,9 @@ public class View{
         frame2.setVisible(true);
     }
 
-    public void displayInstructions(ArrayList<String> instructions) {
-        instructionLabel.setText(instructions.get(0));
-        yesButton.setText("Yes");
+    public void displayInstructions(ArrayList<String> instructions, int index) {
+        instructionLabel.setText(instructions.get(index));
+        yesButton.setText("yes");
         noButton.setText("no");
     
         panel2.revalidate();
