@@ -20,6 +20,8 @@ public class Controller implements ActionListener{
 
         this.view.foodButton.addActionListener(this);
         this.view.OKFoodButton.addActionListener(this);
+        this.view.yesButton.addActionListener(this);
+        this.view.noButton.addActionListener(this);
     }
 
     public void displayScreen() {
@@ -33,8 +35,29 @@ public class Controller implements ActionListener{
             this.view.showFoodOptions();
         } else if (e.getSource().equals(this.view.OKFoodButton)) {
             String foodItem = this.view.foodOptionsMenu.getSelectedItem().toString();
-            ArrayList<String> instructions = this.model.returnFoodInstructions(foodItem);
+            String action = "eat";
+            instructions = this.model.returnFoodInstructions(foodItem);
+            index = 0;
+            this.view.displayTask(foodItem, action);
+            this.view.displayInstructions(instructions, index);
+        } else if (e.getSource().equals(this.view.yesButton)) {
+            if (index == 0) {
+                // child does not need help, 
+                this.view.displayFinalLine();
+            } else if (index == 1) {
+                // child has not started the activity, the device should take them through the task
+                index += 1;
+                this.view.displayInstructions(instructions, index);
+            }
+        } else if (e.getSource().equals(this.view.noButton)) {
+            if (index == 1) {
+                // child is stuck on a stage, and requires help
+                this.view.alertCarer();
+                
+            } else {
+                index += 1;
+                this.view.displayInstructions(instructions, index);
+            }
         }
-        
     }
 }
