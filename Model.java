@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 public class Model {
 
-    private Data data;
-
     public HashMap<String, ArrayList<String>> food;
     public HashMap<String, ArrayList<String>> foodInstructions;
 
@@ -16,7 +14,11 @@ public class Model {
         food = new HashMap<String, ArrayList<String>>();
         food.put("crisps", foodInstructions.get("crisps"));
     }
-
     
+    public ArrayList<String> returnFoodInstructions(String item) {
+        return foodInstructions.get(item);
+    }
+
+
     
 }

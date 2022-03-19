@@ -33,7 +33,7 @@ public class Controller implements ActionListener{
             this.view.showFoodOptions();
         } else if (e.getSource().equals(this.view.OKFoodButton)) {
             String foodItem = this.view.foodOptionsMenu.getSelectedItem().toString();
-            
+            ArrayList<String> instructions = this.model.returnFoodInstructions(foodItem);
         }
         
     }
