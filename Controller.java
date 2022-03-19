@@ -21,6 +21,7 @@ public class Controller implements ActionListener{
         this.model = model;
         this.view = view;
         this.data = data;
+        System.out.println("hi");
 
         // add actions to button clicks
         this.view.enterTaskButton.addActionListener(this);
