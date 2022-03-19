@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Data {
 
-    HashMap<String, ArrayList<String>> foodInstructions;
+    public HashMap<String, ArrayList<String>> foodInstructions;
 
     public Data() {
         foodInstructions = new HashMap<String, ArrayList<String>>();
         ArrayList<String> crispsInstruction = new ArrayList<>(Arrays.asList("Are you eating the crisps?", "Is the packet open?", "You can eat the crisps"));
-        foodInstructions.put("eat crisps", crispsInstruction);
+        foodInstructions.put("crisps", crispsInstruction);
     }
 }

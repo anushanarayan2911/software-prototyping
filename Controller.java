@@ -8,9 +8,6 @@ public class Controller implements ActionListener{
     // create model and view
     private Model model;
     public View view;
-    
-    // create large data set
-    private Data data; 
 
     // create variables
     int index;
@@ -20,9 +17,9 @@ public class Controller implements ActionListener{
         // initialise variables
         this.model = model;
         this.view = view;
-        this.data = data;
 
         this.view.foodButton.addActionListener(this);
+        this.view.OKFoodButton.addActionListener(this);
     }
 
     public void displayScreen() {
@@ -32,9 +29,11 @@ public class Controller implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         this.view.removeHomeScreen();
-        System.out.println("hi");
         if (e.getSource().equals(this.view.foodButton)) {
             this.view.showFoodOptions();
+        } else if (e.getSource().equals(this.view.OKFoodButton)) {
+            String foodItem = this.view.foodOptionsMenu.getSelectedItem().toString();
+            
         }
         
     }
